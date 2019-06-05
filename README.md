@@ -13,12 +13,12 @@ The Species Keys are then posted to the GBIF Occurrence Store from which a set o
 occurrences is downloaded. Next, the occurrences are classified using a global raster map of seven
 bioclimatic belts in mountains developed by the U.S. Geological Survey (USGS) and Körner et al. (2011).
 
-![K2 Mountain Classes](https://github.com/bfeinsilver/ginseng/blob/master/map-large.png)
+![K2 Raster Map](https://github.com/bfeinsilver/ginseng/blob/master/map-large.png)
 
 Finally, the classified occurrences are grouped, aggregated and linked back to their corresponding
 sequences according to the following relationships:
 
-relationship graph
+![Relationship Diagram](https://github.com/bfeinsilver/ginseng/blob/master/relationship-diagram.png)
 
 # Example – Chloroplast Genomes
 In this example, we want to classify all complete chloroplast genome sequences in the NCBI Nucleotide
