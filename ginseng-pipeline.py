@@ -27,7 +27,7 @@ class EntrezTask(luigi.Task):
     adapter = requests.adapters.HTTPAdapter(max_retries=retries)
     timeout = 30
     retmax = 50 # Entrez limits JSON responses to 500 records per request.
-    api_key = luigi.Parameter(default='beac95a908b21daf251667ee6eb138a05608')
+    api_key = luigi.Parameter(default='<api-key>') # Must register with NCBI.
 
     
 class GBIFTask(luigi.Task):
@@ -264,8 +264,8 @@ class PostUsageKeys(GBIFTask):
     # Occurrence Store in chunk sizes of no larger than 300 and returns a list
     # of download IDs.
 
-    user = luigi.Parameter(default='bfeinsilver')
-    pwd = luigi.Parameter(default='f5Rga5RPGgg4GNEa', significant=False)
+    user = luigi.Parameter(default='<user>') # Must create account with GBIF.
+    pwd = luigi.Parameter(default='<pwd>') # Must create account with GBIF.
     chunk_size = 300
     retries = Retry(backoff_factor=4, status_forcelist=[503, 420], total=None,
         connect=10, read=10, redirect=10, status=250, method_whitelist=['POST'])
