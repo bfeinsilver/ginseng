@@ -51,7 +51,7 @@ UID        Taxonomy ID  Species Key  Belt
 ```
 
 ## Analysis
-Our query of the Nucleotide database yielded 5,972 complete chloroplast genomes, 2,302 of which represented unique plant species occurring in mountains. This indicates that over 60% of the genomes represented either multiple sequences of a single species, seqeunces of synonymous species, seqences of varities and subspecies, or sequences of species that did not occur in mountains. A histogram of bioclimatic belts among unique species is generally consistent with the observation that the number of plant species declines with increasing elevation. However, it is unclear why so few species occurred in Belt 6 (mountain area with frost)...
+Our query of the Nucleotide database yielded 5,972 complete chloroplast genomes, 2,302 of which represented unique plant species occurring in mountains. This indicates that over 60% of the genomes represented either multiple sequences of a single species, seqeunces of synonymous species, seqences of varities and subspecies, or sequences of species that did not occur in mountains. A histogram of the results is generally consistent with the observation that the number of plant species declines with increasing elevation. However, it is unclear why so few species occurred in Belt 6 (mountain area with frost)...
 
 ![Histogram](https://github.com/bfeinsilver/ginseng/blob/master/hist.png)
 
