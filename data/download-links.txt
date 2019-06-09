@@ -1,0 +1,9 @@
+http://api.gbif.org/v1/occurrence/download/request/0026384-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026385-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026386-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026391-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026392-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026393-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026399-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026400-190415153152247.zip
+http://api.gbif.org/v1/occurrence/download/request/0026403-190415153152247.zip

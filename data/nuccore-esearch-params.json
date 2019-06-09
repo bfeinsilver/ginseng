@@ -1,0 +1,83 @@
+{
+    "header": {
+        "type": "esearch",
+        "version": "0.3"
+    },
+    "esearchresult": {
+        "count": "5973",
+        "retmax": "20",
+        "retstart": "0",
+        "querykey": "1",
+        "webenv": "NCID_1_61193055_130.14.18.97_9001_1559964006_1597203416_0MetA0_S_MegaStore",
+        "idlist": [
+            "1677650587",
+            "1674864531",
+            "1674864265",
+            "1672732587",
+            "1669285201",
+            "1669285117",
+            "1669285033",
+            "1669284949",
+            "1669284865",
+            "1669284781",
+            "1669284697",
+            "1669284613",
+            "1669284529",
+            "1669284445",
+            "1669284361",
+            "1669284275",
+            "1669284189",
+            "1669283668",
+            "1669285383",
+            "1665686157"
+        ],
+        "translationset": [
+        ],
+        "translationstack": [
+            {
+                "term": "chloroplast[Filter]",
+                "field": "Filter",
+                "count": "1210309",
+                "explode": "N"
+            },
+            {
+                "term": "plants[Filter]",
+                "field": "Filter",
+                "count": "86596520",
+                "explode": "N"
+            },
+            "AND",
+            {
+                "term": "complete[Properties]",
+                "field": "Properties",
+                "count": "392177",
+                "explode": "N"
+            },
+            "AND",
+            {
+                "term": "unverified[Title]",
+                "field": "Title",
+                "count": "302401",
+                "explode": "N"
+            },
+            "NOT",
+            {
+                "term": "00000120000[SLEN]",
+                "field": "SLEN",
+                "count": "0",
+                "explode": "N"
+            },
+            {
+                "term": "00000160000[SLEN]",
+                "field": "SLEN",
+                "count": "0",
+                "explode": "N"
+            },
+            "RANGE",
+            "GROUP",
+            "AND"
+        ],
+        "querytranslation": "chloroplast[Filter] AND plants[Filter] AND complete[Properties] NOT unverified[Title] AND (00000120000[SLEN] : 00000160000[SLEN])"
+    }
+}
+
