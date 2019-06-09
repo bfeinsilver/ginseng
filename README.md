@@ -39,7 +39,7 @@ For more information on installing and running Luigi, please refer to their [doc
 We are able to monitor the status of our tasks as well as view all dependencies in the Luigi Central
 Scheduler:
 
-![Dependency Graph](https://github.com/bfeinsilver/ginseng/blob/master/dependency-graph-screenshot.png)
+![Dependency Graph](https://github.com/bfeinsilver/ginseng/blob/master/dependency-graph-screenshot.PNG)
 
 When all our tasks have completed, our output will look like this:
 
