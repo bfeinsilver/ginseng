@@ -12,7 +12,7 @@ Information Facility (GBIF) Checklist Bank which resolves synonyms to accepted n
 
 ![K2 Raster Map](https://github.com/bfeinsilver/ginseng/blob/master/map-large.png)
 
-In the final steps of the pipeline, the classified occurrences are aggregated by Species Key using the most frequently occurring bioclimatic belt and linked back to their corresponding genetic sequences according to the set of relationships defined below:
+In the final steps of the pipeline, the classified occurrences are aggregated by Species Key using the most frequently occurring bioclimatic belt and linked back to their corresponding genetic sequences according to the relationships defined below:
 
 ![Relationship Diagram](https://github.com/bfeinsilver/ginseng/blob/master/relationship-diagram.png)
 
@@ -24,22 +24,29 @@ chloroplast[Filter]
 AND plants[Filter]
 AND complete[Properties]
 NOT unverified[Title]
-AND (120000[SLEN]:160000[SLEN]) # This statement limits our search results to sequences between 120-160 Kbp.
+AND (120000[SLEN]:160000[SLEN]) # This limits our results to sequences between 120-160 Kbp.
 ```
-We save this file locally as `data/query.txt` and run the following command:
-```bash
-$ luigi --module ginseng-pipeline ClassifySequences
+This statement is then passed as the `term` argument when running the following command:
 ```
-For more information on installing and running Luigi, please refer to their [documentation](https://luigi.readthedocs.io/en/stable/).
+$ luigi --module ginseng-pipeline RunAllTasks --SearchNuccore-term <term>
+```
+For more information on installing and running Luigi, please refer to the [documentation](https://luigi.readthedocs.io/en/stable/).
 
-We are able to monitor the status of our tasks as well as view all dependencies in the Luigi Central
-Scheduler:
+Once the pipeline is up and running, we are able to monitor the status of our tasks as well as view all dependencies in the Luigi Central Scheduler:
 
 ![Dependency Graph](https://github.com/bfeinsilver/ginseng/blob/master/dependency-graph-screenshot.PNG)
 
-When all our tasks have completed, our output will look like this:
+When the Central Scheduler indicates that all tasks have completed successfully, our output `data\classified-sequences.txt` should look something like this:
 
-final output txt
+```
+UID        Taxonomy ID  Species Key  Belt
+1677650587 141191       5420912      7
+1654700304 141191       5420912      7
+1674864531 4442         3189635      5
+1468712715 4442         3189635      5
+430728250  4442         3189635      5
+...        ...          ...          ...
+```
 
 Of the 5,972 complete chloroplast genomes, 2,302 represented unique species occurring in mountains.
 
