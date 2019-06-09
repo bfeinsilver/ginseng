@@ -39,12 +39,12 @@ For more information on installing and running Luigi, please refer to their [doc
 We are able to monitor the status of our tasks as well as view all dependencies in the Luigi Central
 Scheduler:
 
-screenshot of scheduler
+![Dependency Graph](https://github.com/bfeinsilver/ginseng/blob/master/dependency-graph-screenshot.png)
 
 When all our tasks have completed, our output will look like this:
 
 final output txt
 
-Of the 5,000 complete chloroplast genomes, 2,000 represented unique species occurring in mountains.
+Of the 5,972 complete chloroplast genomes, 2,302 represented unique species occurring in mountains.
 
-histogram
+![Histogram](https://github.com/bfeinsilver/ginseng/blob/master/hist.png)
