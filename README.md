@@ -8,15 +8,15 @@ GINSENG is written in Python and uses the open source pipeline and workflow mana
 software, Luigi. GINSENG starts by searching the NCBI Nucleotide database for genetic
 sequences based on a user-defined query. A Taxonomy ID maps each sequence to the scientific name of
 a species. The scientific names are then used to perform a fuzzy search against the Global Biodiversity
-Information Facility (GBIF) Checklist Bank resolving any synonyms and returning a list of Species Keys.
+Information Facility (GBIF) Checklist Bank resolving any synonyms, varities and subspecies and returning a list of Species Keys.
 The Species Keys are then posted to the GBIF Occurrence Store from which a set of georeferenced
 occurrences is downloaded. Next, the occurrences are classified using a global raster map of seven
 bioclimatic belts in mountains developed by the U.S. Geological Survey (USGS) and Körner et al. (2011).
 
 ![K2 Raster Map](https://github.com/bfeinsilver/ginseng/blob/master/map-large.png)
 
-Finally, the classified occurrences are grouped, aggregated and linked back to their corresponding
-sequences according to the following relationships:
+Finally, the classified occurrences are grouped, aggregated (based on their mode) and linked back to their corresponding
+sequences according to a set of relationships defined below:
 
 ![Relationship Diagram](https://github.com/bfeinsilver/ginseng/blob/master/relationship-diagram.png)
 
