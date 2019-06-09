@@ -17,8 +17,10 @@ In the final steps of the pipeline, the classified occurrences are aggregated by
 ![Relationship Diagram](https://github.com/bfeinsilver/ginseng/blob/master/relationship-diagram.png)
 
 # Example – Chloroplast Genomes
-In this example, we want to classify all complete chloroplast genome sequences in the NCBI Nucleotide
-database. We begin by constructing the following query statement:
+In this example, we show how to classify all complete chloroplast genome sequences in the NCBI Nucleotide
+database.
+## Setting Up and Running The Pipeline
+We begin by constructing the following query statement:
 ```sql
 chloroplast[Filter]
 AND plants[Filter]
@@ -30,7 +32,7 @@ We then run the following command passing our previously constructed query state
 ```
 $ luigi --module ginseng-pipeline RunAllTasks --SearchNuccore-term <term>
 ```
-For more information on installing and using Luigi, please refer to the [documentation](https://luigi.readthedocs.io/en/stable/).
+For more information on using Luigi, please refer to the [documentation](https://luigi.readthedocs.io/en/stable/).
 
 Once the pipeline is up and running, we are able to monitor the status of our tasks as well as view all dependencies in the Luigi Central Scheduler:
 
@@ -48,8 +50,13 @@ UID        Taxonomy ID  Species Key  Belt
 ...        ...          ...          ...
 ```
 
-Of the 5,972 complete chloroplast genomes, 2,302 represented unique species occurring in mountains.
+## Analysis
+Our query of the Nucleotide database yielded 5,972 complete chloroplast genomes, 2,302 of which represented unique plant species occurring in mountains. This indicates that over 60% of the genomes represented either multiple sequences of a single species, seqeunces of synonymous species, seqences of varities and subspecies, or sequences of species that did not occur in mountains. A histogram of bioclimatic belts among unique species is generally consistent with the observation that the number of plant species declines with increasing elevation. However, it is unclear why so few species occurred in Belt 6 (mountain area with frost)...
 
 ![Histogram](https://github.com/bfeinsilver/ginseng/blob/master/hist.png)
 
 # References
+
+https://bioone.org/journals/Mountain-Research-and-Development/volume-38/issue-3/MRD-JOURNAL-D-17-00107.1/A-New-High-Resolution-Map-of-World-Mountains-and-an/10.1659/MRD-JOURNAL-D-17-00107.1.full
+
+https://link.springer.com/article/10.1007/s00035-016-0182-6
