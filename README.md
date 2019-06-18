@@ -5,7 +5,7 @@ The Global Inventory of Nucleotide Sequences Across Environmental Gradients (GIN
 GINSENG is written in Python and uses the open source pipeline and workflow management software, Luigi. GINSENG starts by searching the NCBI Nucleotide database for genetic sequences based on a user-defined query. A *Taxonomy ID* maps each sequence to the scientific name of a species. The scientific names are then fuzzy-matched against the Global Biodiversity Information Facility ([GBIF][4]) Checklist Bank which resolves synonyms, homonyms, varieties and subspecies to accepted species-level names. The resolved list of *Species Keys*, returned from the GBIF Checklist Bank, is then posted to the GBIF Occurrence Store in a download request. Once the requested georeferenced occurrences become available, they are downloaded and classified using their geocoordinates and a global raster map of seven bioclimatic belts in mountains.
 
 ---
-The GINSENG classification engine uses the “K2” raster map developed by the U.S. Geological Survey (USGS)([2018][1]) and Körner et al. ([2016][2]). The K2 characterization of mountains first rigorously and consistently delineates global mountain regions then subdivides those regions into seven bioclimatic belts: nival, upper alpine, lower alpine, upper montane, lower montane, mountain area with frost and mountain area without frost. According to Körner et al., the K2 map, “offers a robust framework for the integration of mountain biota in regional and larger scale biodiversity assessments, for biogeography, bioclimatology, macroecology, and conservation research.” The K2 datafiles can be downloaded [here][5].
+The GINSENG classification engine uses the “K2” raster map developed by the U.S. Geological Survey (USGS)([2018][1]) and Körner et al. ([2011][8],[2016][2]). The K2 characterization of mountains first rigorously and consistently delineates global mountain regions then subdivides those regions into seven bioclimatic belts: nival, upper alpine, lower alpine, upper montane, lower montane, mountain area with frost and mountain area without frost. According to Körner et al., the K2 map, “offers a robust framework for the integration of mountain biota in regional and larger scale biodiversity assessments, for biogeography, bioclimatology, macroecology, and conservation research.” The K2 datafiles can be downloaded [here][5].
 
 ![K2 Raster Map](https://github.com/bfeinsilver/ginseng/blob/master/map-large.png)
 
@@ -67,3 +67,5 @@ Our query of the Nucleotide database yielded 5,972 complete chloroplast genomes,
 [6]: https://luigi.readthedocs.io/en/stable
 
 [7]: https://doi.org/10.1111/j.1600-0587.1995.tb00341.x
+
+[8]: https://link.springer.com/article/10.1007%2Fs00035-011-0094-4
