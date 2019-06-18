@@ -1,11 +1,11 @@
 # What is GINSENG?
-The Global Inventory of Nucleotide Sequences Across Environmental Gradients (GINSENG) is an Extract, Transform and Load (ETL) pipeline built to georeference and classify genomic sequence data in the National Center for Biotechnology Information (NCBI) Nucleotide database.
+The Global Inventory of Nucleotide Sequences Across Environmental Gradients (GINSENG) is an Extract, Transform and Load (ETL) pipeline built to georeference and classify genomic sequence data in the National Center for Biotechnology Information (NCBI) [Nucleotide database][3].
 
 # How Does GINSENG Work?
-GINSENG is written in Python and uses the open source pipeline and workflow management software, Luigi. GINSENG starts by searching the NCBI Nucleotide database for genetic sequences based on a user-defined query. A *Taxonomy ID* maps each sequence to the scientific name of a species. The scientific names are then fuzzy-matched against the Global Biodiversity Information Facility (GBIF) Checklist Bank which resolves synonyms, homonyms, varieties and subspecies to accepted species-level names. The resolved list of *Species Keys*, returned from the GBIF Checklist Bank, is then posted to the GBIF Occurrence Store in a download request. Once the requested georeferenced occurrences become available, they are downloaded and classified using their geocoordinates and a global raster map of seven bioclimatic belts in mountains.
+GINSENG is written in Python and uses the open source pipeline and workflow management software, Luigi. GINSENG starts by searching the NCBI Nucleotide database for genetic sequences based on a user-defined query. A *Taxonomy ID* maps each sequence to the scientific name of a species. The scientific names are then fuzzy-matched against the Global Biodiversity Information Facility ([GBIF][4]) Checklist Bank which resolves synonyms, homonyms, varieties and subspecies to accepted species-level names. The resolved list of *Species Keys*, returned from the GBIF Checklist Bank, is then posted to the GBIF Occurrence Store in a download request. Once the requested georeferenced occurrences become available, they are downloaded and classified using their geocoordinates and a global raster map of seven bioclimatic belts in mountains.
 
 ---
-The GINSENG classification engine uses the “K2” raster map developed by the U.S. Geological Survey (USGS) and Körner et al. (2016). The K2 characterization of mountains first rigorously and consistently delineates global mountain regions then subdivides those regions into seven bioclimatic belts: nival, upper alpine, lower alpine, upper montane, lower montane, mountain area with frost and mountain area without frost. According to its authors, the K2 map, “offers a robust framework for the integration of mountain biota in regional and larger scale biodiversity assessments, for biogeography, bioclimatology, macroecology, and conservation research.”
+The GINSENG classification engine uses the “K2” raster map developed by the U.S. Geological Survey (USGS)([2018][1]) and Körner et al. ([2016][2]). The K2 characterization of mountains first rigorously and consistently delineates global mountain regions then subdivides those regions into seven bioclimatic belts: nival, upper alpine, lower alpine, upper montane, lower montane, mountain area with frost and mountain area without frost. According to its authors, the K2 map, “offers a robust framework for the integration of mountain biota in regional and larger scale biodiversity assessments, for biogeography, bioclimatology, macroecology, and conservation research.” The K2 datafiles can be downloaded [here][5].
 
 ![K2 Raster Map](https://github.com/bfeinsilver/ginseng/blob/master/map-large.png)
 
@@ -31,7 +31,7 @@ We then run the following command passing our previously constructed query state
 ```
 $ luigi --module ginseng-pipeline RunAllTasks --SearchNuccore-term <term>
 ```
-For more information on using Luigi, please refer to the [documentation](https://luigi.readthedocs.io/en/stable/).
+For more information on using Luigi, please refer to the [documentation][6].
 
 Once the pipeline is up and running, we are able to monitor the status of our tasks as well as view all dependencies in the Luigi Central Scheduler:
 
@@ -50,12 +50,18 @@ UID        Taxonomy ID  Species Key  Belt
 ```
 
 ## Analysis
-Our query of the Nucleotide database yielded 5,972 complete chloroplast genomes, 2,302 of which represented unique plant species occurring in mountains. This indicates that over 60% of the genomes represented either multiple sequences of a single species, seqeunces of synonymous species, seqences of varities and subspecies, or sequences of species that did not occur in mountains. A histogram of the results is generally consistent with the observation that the number of plant species declines with increasing elevation. However, it is unclear why so few species occurred in Belt 6 (mountain area with frost)...
+Our query of the Nucleotide database yielded 5,972 complete chloroplast genomes, 2,302 of which represented unique plant species occurring in mountains. This indicates that over 60% of the genomes represented either multiple sequences of a single species, sequences of synonymous species, sequences of varieties and subspecies, or sequences of species that did not occur in mountains. A histogram of the results is generally consistent with the observation that the number of plant species declines with increasing elevation. However, it is unclear why so few species occurred in Belt 6 (mountain area with frost)...
 
 ![Histogram](https://github.com/bfeinsilver/ginseng/blob/master/hist.png)
 
-# References
+[1]: https://bioone.org/journals/Mountain-Research-and-Development/volume-38/issue-3/MRD-JOURNAL-D-17-00107.1/A-New-High-Resolution-Map-of-World-Mountains-and-an/10.1659/MRD-JOURNAL-D-17-00107.1.full
 
-https://bioone.org/journals/Mountain-Research-and-Development/volume-38/issue-3/MRD-JOURNAL-D-17-00107.1/A-New-High-Resolution-Map-of-World-Mountains-and-an/10.1659/MRD-JOURNAL-D-17-00107.1.full
+[2]: https://link.springer.com/article/10.1007/s00035-016-0182-6
 
-https://link.springer.com/article/10.1007/s00035-016-0182-6
+[3]: https://www.ncbi.nlm.nih.gov/nucleotide
+
+[4]: https://www.gbif.org
+
+[5]: https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global
+
+[6]: https://luigi.readthedocs.io/en/stable
